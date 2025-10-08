@@ -411,107 +411,83 @@ html
     </nav>
 
     <main id="main">
-        <section id="hero" class="relative h-[120vh] pt-28 lg:pt-40 flex flex-col justify-center items-center overflow-hidden animate-fadeIn" style="background: var(--bg-dark);">
-            <!-- Background dark gradient/haze effect -->
-            <div class="absolute inset-0 z-0 bg-gradient-to-t from-black via-gray-900 to-black opacity-80"></div>
-            
-            <!-- Main Content Area -->
-            <div class="relative w-full max-w-7xl h-[80vh] md:h-[90vh] flex flex-col items-center justify-start pt-10 z-10">
+    <section id="hero" class="relative min-h-screen lg:h-[120vh] pt-28 lg:pt-40 flex flex-col justify-center items-center overflow-hidden animate-fadeIn" style="background: var(--bg-dark);">
+        <div class="absolute inset-0 z-0 bg-gradient-to-t from-black via-gray-900 to-black opacity-80"></div>
 
-                <!-- Main Title Text -->
-                <div class="text-center mb-16">
-                    <h1 class="text-6xl md:text-8xl font-black uppercase neon-text tracking-widest">Muhammed Rasheequ</h1>
-                    <h2 class="text-xl md:text-3xl font-light uppercase neon-text tracking-[.4em] mt-2">Graphic Designer & Front-End Developer</h2>
-                    
+        <div class="relative w-full max-w-7xl h-full flex flex-col items-center justify-center p-4 sm:p-6 lg:p-10 z-10 text-white">
 
+            <div class="text-center mb-8 lg:mb-16">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase neon-text tracking-widest leading-tight">Muhammed Rasheequ</h1>
+                <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light uppercase neon-text tracking-[.2em] sm:tracking-[.3em] lg:tracking-[.4em] mt-2">Graphic Designer & Front-End Developer</h2>
 
-
-
-
-                    
-                    <!-- Call to Action Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-60">
-                        <a href="#contact" class="bg-[var(--primary-color)] text-black font-bold py-3 px-8 rounded-xl hover:scale-105 transition-transform min-h-[50px] flex items-center justify-center">
-                            Hire Me
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-16 md:mt-40 lg:mt-60">
+                    <a href="#contact" class="bg-[var(--primary-color)] text-black font-bold py-3 px-8 rounded-xl hover:scale-105 transition-transform min-h-[50px] flex items-center justify-center whitespace-nowrap">
+                        Hire Me
+                    </a>
+                    <button id="download-resume" class="border-2 border-[var(--primary-color)] text-[var(--primary-color)] font-bold py-3 px-8 rounded-xl hover:bg-[var(--primary-color)] hover:text-black transition-all min-h-[50px] flex items-center justify-center whitespace-nowrap">
+                        <a href="https://drive.google.com/file/d/1OLgdZXxp7imKI80ZDHw-pNNpYOiAtDLD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                            Download Resume
                         </a>
-                        <button id="download-resume" class="border-2 border-[var(--primary-color)] text-[var(--primary-color)] font-bold py-3 px-8 rounded-xl hover:bg-[var(--primary-color)] hover:text-black transition-all min-h-[50px] flex items-center justify-center">
-    <a href="https://drive.google.com/file/d/1OLgdZXxp7imKI80ZDHw-pNNpYOiAtDLD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-        Download Resume
-    </a>
-</button>
-                    </div>
+                    </button>
                 </div>
+            </div>
 
+            <div class="glowing-screen w-48 h-80 absolute top-1/2 left-1/4 -translate-x-full -translate-y-1/2 rounded-3xl p-4 flex-col hidden lg:flex"
+                style="animation: float-screen-1 6s ease-in-out infinite; z-index: 5;">
+                <div class="text-xs text-white/50 mb-4">Admin Login</div>
+                <h3 class="text-xl text-white font-semibold mb-6">Login to Admin Panel</h3>
+                <form id="admin-login-form" class="flex flex-col gap-3">
+                    <input type="text" id="admin-username" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Username" required>
+                    <input type="password" id="admin-password" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Password" required>
+                    <button type="submit" class="bg-cyan-500 text-black font-bold py-2 rounded-xl shadow-lg shadow-cyan-500/50 min-h-[44px]">Login</button>
+                    <p id="admin-login-error" class="text-red-400 text-xs mt-2 hidden">Invalid credentials. Please try again.</p>
+                </form>
+            </div>
 
-
-
-
-
-
-
-                <!-- Floating UI Screens -->
-                <div class="glowing-screen w-48 h-80 absolute top-1/2 left-1/4 -translate-x-full -translate-y-1/2 rounded-3xl p-4 flex flex-col desktop-only" 
-                    style="animation: float-screen-1 6s ease-in-out infinite; z-index: 5;">
-                    <div class="text-xs text-white/50 mb-4">Admin Login</div>
-                    <h3 class="text-xl text-white font-semibold mb-6">Login to Admin Panel</h3>
-                    <form id="admin-login-form" class="flex flex-col gap-3">
-                        <input type="text" id="admin-username" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Username" required>
-                        <input type="password" id="admin-password" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Password" required>
-                        <button type="submit" class="bg-cyan-500 text-black font-bold py-2 rounded-xl shadow-lg shadow-cyan-500/50 min-h-[44px]">Login</button>
-                        <p id="admin-login-error" class="text-red-400 text-xs mt-2 hidden">Invalid credentials. Please try again.</p>
-                    </form>
+            <div class="glowing-screen w-48 h-80 absolute top-1/2 right-1/4 translate-x-full -translate-y-1/2 rounded-3xl p-4 flex-col hidden lg:flex"
+                style="animation: float-screen-3 7s ease-in-out infinite alternate-reverse; z-index: 5;">
+                <div class="text-xs text-white/50 mb-4">Code Editor</div>
+                <div class="grid grid-cols-7 gap-0.5 text-center text-xs text-white/70 mb-4">
+                    <div>HTML</div><div>CSS</div><div>JS</div><div>Build</div><div>Test</div><div>Deploy</div><div>Live</div>
                 </div>
+                <div class="space-y-2">
+                    <div class="h-3 bg-green-500/50 rounded-full w-full"></div>
+                    <div class="h-3 bg-cyan-500/50 rounded-full w-1/2 ml-auto"></div>
+                    <div class="h-3 bg-purple-500/50 rounded-full w-3/4"></div>
+                    <div class="text-white/70 text-xs pt-4">New commit: Updated responsive layout</div>
+                </div>
+            </div>
 
-                <!-- Central Character Focus -->
-               
+            <div class="glowing-icon icon-ps absolute top-[10%] left-[20%] hidden lg:block"
+                style="animation: float-icon-ps 3s ease-in-out infinite; z-index: 20;">Ps</div>
+            <div class="glowing-icon icon-ai absolute top-[30%] right-[10%] hidden lg:block"
+                style="animation: float-icon-ai 3.5s ease-in-out infinite alternate; z-index: 20;">Ai</div>
+            <div class="glowing-icon icon-id absolute bottom-[20%] left-[10%] hidden lg:block"
+                style="animation: float-icon-id 4s ease-in-out infinite; z-index: 20;">Id</div>
+            <div class="glowing-icon icon-fg absolute bottom-[10%] right-[30%] hidden lg:block"
+                style="animation: float-icon-fg 4.5s ease-in-out infinite alternate-reverse; z-index: 20;">Fg</div>
+            <div class="glowing-icon icon-tw absolute top-[20%] left-[30%] hidden lg:block"
+                style="animation: float-icon-tw 5s ease-in-out infinite; z-index: 20;">Tw</div>
+            <div class="glowing-icon icon-js absolute bottom-[30%] right-[20%] hidden lg:block"
+                style="animation: float-icon-js 5.5s ease-in-out infinite alternate; z-index: 20;">Js</div>
 
-                <!-- Screen 3: Code Editor UI -->
-                <div class="glowing-screen w-48 h-80 absolute top-1/2 right-1/4 translate-x-full -translate-y-1/2 rounded-3xl p-4 flex flex-col desktop-only" 
-                    style="animation: float-screen-3 7s ease-in-out infinite alternate-reverse; z-index: 5;">
-                    <div class="text-xs text-white/50 mb-4">Code Editor</div>
-                    <div class="grid grid-cols-7 gap-.5 text-center text-xs text-white/70 mb-4">
-                        <div>HTML</div><div>CSS</div><div>JS</div><div>Build</div><div>Test</div><div>Deploy</div><div>Live</div>
-                    </div>
+            <div class="flex flex-col items-center justify-center space-y-4 w-full p-4 sm:p-6 lg:hidden mt-auto mb-8">
+                <div class="glowing-screen w-11/12 max-w-sm h-auto min-h-[150px] rounded-xl p-4 flex flex-col justify-center mobile-float-screen" style="animation-delay: 0s;">
+                    <h3 class="text-lg text-white font-semibold mb-2">Design Workspace</h3>
+                    <input class="w-full bg-white/10 text-white p-2 rounded-lg text-sm mb-3 border border-cyan-400/50" placeholder="Project Name">
+                    <button class="bg-cyan-500 text-black font-bold py-2 rounded-xl w-full min-h-[44px]">Create</button>
+                </div>
+                <div class="glowing-screen w-11/12 max-w-sm h-auto min-h-[150px] rounded-xl p-4 flex flex-col justify-center mobile-float-screen" style="animation-delay: 1s;">
+                    <h3 class="text-lg text-white font-semibold mb-2">Code Editor</h3>
                     <div class="space-y-2">
-                        <div class="h-3 bg-green-500/50 rounded-full w-full"></div>
-                        <div class="h-3 bg-cyan-500/50 rounded-full w-1/2 ml-auto"></div>
-                        <div class="h-3 bg-purple-500/50 rounded-full w-3/4"></div>
-                        <div class="text-white/70 text-xs pt-4">New commit: Updated responsive layout</div>
-                    </div>
-                </div>
-
-                <!-- Floating App Icons -->
-                <div class="glowing-icon icon-ps absolute top-[10%] left-[20%] desktop-only" 
-                    style="animation: float-icon-ps 3s ease-in-out infinite; z-index: 20;">Ps</div>
-                <div class="glowing-icon icon-ai absolute top-[30%] right-[10%] desktop-only" 
-                    style="animation: float-icon-ai 3.5s ease-in-out infinite alternate; z-index: 20;">Ai</div>
-                <div class="glowing-icon icon-id absolute bottom-[20%] left-[10%] desktop-only" 
-                    style="animation: float-icon-id 4s ease-in-out infinite; z-index: 20;">Id</div>
-                <div class="glowing-icon icon-fg absolute bottom-[10%] right-[30%] desktop-only" 
-                    style="animation: float-icon-fg 4.5s ease-in-out infinite alternate-reverse; z-index: 20;">Fg</div>
-                <div class="glowing-icon icon-tw absolute top-[20%] left-[30%] desktop-only" 
-                    style="animation: float-icon-tw 5s ease-in-out infinite; z-index: 20;">Tw</div>
-                <div class="glowing-icon icon-js absolute bottom-[30%] right-[20%] desktop-only" 
-                    style="animation: float-icon-js 5.5s ease-in-out infinite alternate; z-index: 20;">Js</div>
-
-                <!-- Mobile View -->
-                <div class="sm:hidden flex flex-col items-center justify-center space-y-4 w-full">
-                    <div class="glowing-screen w-11/12 h-60 rounded-xl p-4 mobile-float-screen">
-                        <h3 class="text-lg text-white font-semibold mb-4">Design Workspace</h3>
-                        <input class="w-full bg-white/10 text-white p-2 rounded-lg text-sm mb-3" placeholder="Project Name">
-                        <button class="bg-cyan-500 text-black font-bold py-2 rounded-xl w-full min-h-[44px]">Create</button>
-                    </div>
-                    <div class="glowing-screen w-11/12 h-60 rounded-xl p-4 mobile-float-screen" style="animation-delay: 1s;">
-                        <h3 class="text-lg text-white font-semibold mb-4">Code Editor</h3>
-                        <div class="space-y-2">
-                            <div class="h-4 bg-green-500/50 rounded-full w-4/5"></div>
-                            <div class="h-4 bg-purple-500/50 rounded-full w-2/3"></div>
-                        </div>
+                        <div class="h-4 bg-green-500/50 rounded-full w-4/5"></div>
+                        <div class="h-4 bg-purple-500/50 rounded-full w-2/3"></div>
                     </div>
                 </div>
             </div>
-        </section>
-
+        </div>
+    </section>
+</main>
         <!-- Trusted By Section -->
         <section class="py-12 bg-gray-900/50">
             <div class="max-w-6xl mx-auto text-center">
