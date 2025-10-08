@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+</head>
+<body class="bg-[#e5ecf1] text-gray-100 min-h-screen">
+    <div class="min-h-screen flex flex-row justify-center items-start gap-6 py-12 px-4">
+        <!-- Sidebar Profile -->
+        <aside class="bg-gray-900 rounded-2xl shadow-xl w-80 flex flex-col items-center py-8 px-6">
+            <img src="myimgort.png" alt="Admin Avatar" class="w-24 h-24 rounded-full border-4 border-[var(--primary-color)] mb-4 shadow-lg">
+            <h2 class="text-2xl font-bold text-[var(--primary-color)] mb-1" id="profile-name">Muhammed Rasheequ</h2>
+            <p class="text-sm text-gray-400 mb-4" id="profile-about">Graphic Designer & Front-End Developer</p>
+            <div class="flex justify-between w-full mb-4">
+                <div class="flex flex-col items-center">
+                    <span class="font-bold text-lg text-gray-50">6,664</span>
+                    <span class="text-xs text-gray-400">Following</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-bold text-lg text-gray-50">9,991</span>
+                    <span class="text-xs text-gray-400">Followers</span>
+                </div>
+            </div>
+            <button id="edit-profile-btn" class="bg-[var(--primary-color)] text-black font-bold py-2 px-6 rounded-xl shadow hover:bg-[var(--primary-color)]/80 transition w-full mb-2">Edit Profile</button>
+            <button id="admin-logout" class="bg-red-500 text-white font-bold py-2 px-6 rounded-xl shadow hover:bg-red-600 transition w-full">Logout</button>
+        </aside>
+        <!-- Main Activity Feed -->
+        <main class="flex-1 max-w-2xl">
+            <div class="bg-gray-900 rounded-2xl shadow-xl p-8 mb-6">
+                <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 flex items-center"><i class="fas fa-tasks mr-2"></i>Manage Projects</h3>
+                <form id="project-manage-form" class="flex flex-col gap-3 mb-4">
+                    <input type="text" id="project-title" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" placeholder="Project Title" required>
+                    <textarea id="project-desc" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" rows="2" placeholder="Project Description" required></textarea>
+                    <input type="url" id="project-link" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" placeholder="Project Link" required>
+                    <input type="file" id="project-image" accept="image/*" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" required>
+                    <button type="submit" class="bg-[var(--primary-color)] text-black font-bold py-2 rounded-xl shadow hover:bg-[var(--primary-color)]/80 transition">Add Project</button>
+                    <span id="project-loading" class="text-xs text-gray-400 mt-2 hidden">Saving...</span>
+                    <span id="project-error" class="text-xs text-red-400 mt-2 hidden"></span>
+                </form>
+                <ul id="project-list" class="space-y-4">
+                    <!-- Projects will appear here -->
+                </ul>
+            </div>
+            <div class="bg-gray-900 rounded-2xl shadow-xl p-8">
+                <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 flex items-center"><i class="fas fa-stream mr-2"></i>Activity Feed</h3>
+                <ul id="activity-feed" class="space-y-4">
+                    <li class="bg-gray-800 rounded-lg p-4">Welcome to your admin dashboard! All activity will show here.</li>
+                </ul>
+            </div>
+        </main>
+        <!-- Right Analytics Panel -->
+        <aside class="bg-gray-900 rounded-2xl shadow-xl w-80 flex flex-col py-8 px-6">
+            <h3 class="text-xl font-bold text-[var(--primary-color)] mb-4 flex items-center"><i class="fas fa-chart-line mr-2"></i>Site Analytics</h3>
+            <div class="space-y-4">
+                <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-2xl font-bold text-[var(--primary-color)]" id="visitors-count">Loading...</span>
+                    <span class="text-xs text-gray-400 mt-1">Site Visitors</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-2xl font-bold text-[var(--primary-color)]" id="logged-count">Loading...</span>
+                    <span class="text-xs text-gray-400 mt-1">Logged People</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-2xl font-bold text-[var(--primary-color)]" id="liked-count">Loading...</span>
+                    <span class="text-xs text-gray-400 mt-1">Liked People</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-2xl font-bold text-[var(--primary-color)]" id="other-count">Loading...</span>
+                    <span class="text-xs text-gray-400 mt-1">Other Actions</span>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-lg font-bold text-[var(--primary-color)] mb-2 flex items-center"><i class="fas fa-envelope mr-2"></i>Messages</h3>
+                <ul id="messages-list" class="space-y-3 max-h-64 overflow-y-auto bg-gray-800 rounded-lg p-4">
+                    <!-- Messages will appear here -->
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-xl p-8 w-full max-w-md shadow-2xl">
+            <h2 class="text-xl font-bold text-[var(--primary-color)] mb-4">Edit Profile</h2>
+            <form id="edit-profile-form" class="flex flex-col gap-3">
+                <input type="text" id="modal-profile-name" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" value="Muhammed Rasheequ">
+                <textarea id="modal-profile-about" class="bg-gray-800 text-white p-2 rounded-lg border border-cyan-400/50" rows="2">Graphic Designer & Front-End Developer</textarea>
+                <button type="submit" class="bg-[var(--primary-color)] text-black font-bold py-2 rounded-xl shadow hover:bg-[var(--primary-color)]/80 transition">Save</button>
+                <button type="button" id="close-profile-modal" class="bg-gray-700 text-white font-bold py-2 rounded-xl shadow hover:bg-gray-600 transition">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script>
+    // Supabase setup
+    const SUPABASE_URL = 'https://hwqswzusjkbfjbtxzfpb.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3cXN3enVzamtiZmpidHh6ZnBiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4NDA1NzUsImV4cCI6MjA3NTQxNjU3NX0.LDMcsAV412izr89PObPLRzJ8itDbi6JGyeN2Ure6jhc';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // Profile Edit Modal Logic
+    const editProfileBtn = document.getElementById('edit-profile-btn');
+    const editProfileModal = document.getElementById('edit-profile-modal');
+    const closeProfileModal = document.getElementById('close-profile-modal');
+    const editProfileForm = document.getElementById('edit-profile-form');
+    const profileName = document.getElementById('profile-name');
+    const profileAbout = document.getElementById('profile-about');
+    if (editProfileBtn) {
+        editProfileBtn.onclick = () => { editProfileModal.classList.remove('hidden'); };
+    }
+    if (closeProfileModal) {
+        closeProfileModal.onclick = () => { editProfileModal.classList.add('hidden'); };
+    }
+    if (editProfileForm) {
+        editProfileForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('modal-profile-name').value;
+            const about = document.getElementById('modal-profile-about').value;
+            profileName.textContent = name;
+            profileAbout.textContent = about;
+            editProfileModal.classList.add('hidden');
+            // Save to Supabase
+            await supabase.from('profile').upsert({ id: 1, name, about });
+            addActivity(`Profile updated.`);
+        };
+    }
+    // Load profile from Supabase
+    async function loadProfile() {
+        const { data } = await supabase.from('profile').select().eq('id', 1).single();
+        if (data) {
+            profileName.textContent = data.name;
+            profileAbout.textContent = data.about;
+        }
+    }
+    loadProfile();
+
+    // Project Management Logic with image upload
+    const projectForm = document.getElementById('project-manage-form');
+    const projectList = document.getElementById('project-list');
+    if (projectForm && projectList) {
+        const projectLoading = document.getElementById('project-loading');
+        const projectError = document.getElementById('project-error');
+        projectForm.onsubmit = async (e) => {
+            e.preventDefault();
+            projectLoading.classList.remove('hidden');
+            projectError.classList.add('hidden');
+            const title = document.getElementById('project-title').value;
+            const desc = document.getElementById('project-desc').value;
+            const link = document.getElementById('project-link').value;
+            const imageInput = document.getElementById('project-image');
+            let imageUrl = '';
+            try {
+                if (imageInput.files.length > 0) {
+                    const file = imageInput.files[0];
+                    // Upload image to Supabase Storage
+                    const { data: uploadData, error: uploadError } = await supabase.storage.from('project-images').upload(`project-${Date.now()}-${file.name}`, file, { cacheControl: '3600', upsert: false });
+                    if (uploadError) throw uploadError;
+                    imageUrl = supabase.storage.from('project-images').getPublicUrl(uploadData.path).publicUrl;
+                }
+                // Save project to Supabase
+                const { data: projectData, error: projectErrorInsert } = await supabase.from('projects').insert({ title, desc, link, image: imageUrl }).select();
+                if (projectErrorInsert) throw projectErrorInsert;
+                // Use returned project data for ID
+                addProjectToList({ title, desc, link, image: imageUrl, id: projectData[0]?.id });
+                projectForm.reset();
+                addActivity(`Added project: <b>${title}</b>`);
+            } catch (err) {
+                projectError.textContent = 'Error saving project.';
+                projectError.classList.remove('hidden');
+            } finally {
+                projectLoading.classList.add('hidden');
+            }
+        };
+        projectList.onclick = async (e) => {
+            if (e.target.classList.contains('delete-project')) {
+                const li = e.target.parentElement;
+                const title = li.querySelector('span').textContent;
+                const id = li.getAttribute('data-id');
+                li.remove();
+                addActivity(`Deleted project: <b>${title}</b>`);
+                // Delete from Supabase
+                if (id) {
+                    projectLoading.classList.remove('hidden');
+                    try {
+                        await supabase.from('projects').delete().eq('id', id);
+                    } catch (err) {
+                        projectError.textContent = 'Error deleting project.';
+                        projectError.classList.remove('hidden');
+                    } finally {
+                        projectLoading.classList.add('hidden');
+                    }
+                }
+            }
+        };
+    }
+    // Update addProjectToList to show image
+    function addProjectToList(project) {
+        const li = document.createElement('li');
+        li.className = 'bg-gray-800 rounded-lg p-4 flex flex-col gap-2';
+        li.setAttribute('data-id', project.id);
+        li.innerHTML = `
+            ${project.image ? `<img src='${project.image}' alt='${project.title}' class='w-full h-32 object-cover rounded mb-2'>` : ''}
+            <span class='font-bold text-lg text-[var(--primary-color)]'>${project.title}</span>
+            <span class='text-sm text-gray-300'>${project.desc}</span>
+            <a href='${project.link}' target='_blank' class='text-cyan-400 underline text-xs'>Visit Project</a>
+            <button class='delete-project bg-red-500 text-white font-bold py-1 px-3 rounded mt-2 self-end'>Delete</button>
+        `;
+        projectList.appendChild(li);
+    }
+    // Real visitor count from Supabase (example: analytics table)
+    async function loadAnalytics() {
+        const { data } = await supabase.from('analytics').select().eq('id', 1).single();
+        if (data) {
+            document.getElementById('visitors-count').textContent = data.visitors;
+            document.getElementById('logged-count').textContent = data.logged;
+            document.getElementById('liked-count').textContent = data.liked;
+            document.getElementById('other-count').textContent = data.other;
+        }
+    }
+    loadAnalytics();
+
+    // Read messages from Supabase and show name, email, and message
+    async function loadMessages() {
+        const { data, error } = await supabase.from('messages').select('name,email,message').order('created_at', { ascending: false });
+        const messagesList = document.getElementById('messages-list');
+        if (messagesList) {
+            messagesList.innerHTML = '';
+            if (error) {
+                messagesList.innerHTML = `<li class='text-red-400'>Error loading messages.</li>`;
+                return;
+            }
+            if (data && data.length > 0) {
+                data.forEach(msg => {
+                    const li = document.createElement('li');
+                    li.className = 'bg-gray-900 rounded p-3';
+                    li.innerHTML = `<div class='flex flex-col'><span class='font-bold text-[var(--primary-color)]'>${msg.name}</span><span class='text-xs text-gray-400 mb-1'>${msg.email}</span><span class='text-gray-100'>${msg.message}</span></div>`;
+                    messagesList.appendChild(li);
+                });
+            } else {
+                messagesList.innerHTML = `<li class='text-gray-400'>No messages found.</li>`;
+            }
+        }
+    }
+    loadMessages();
+    // Load projects from Supabase
+    async function loadProjects() {
+        const { data } = await supabase.from('projects').select();
+        if (data) {
+            data.forEach(addProjectToList);
+        }
+    }
+    function addProjectToList(project) {
+        const li = document.createElement('li');
+        li.className = 'bg-gray-800 rounded-lg p-4 flex flex-col gap-2';
+        li.setAttribute('data-id', project.id);
+        li.innerHTML = `
+            ${project.image ? `<img src='${project.image}' alt='${project.title}' class='w-full h-32 object-cover rounded mb-2'>` : ''}
+            <span class='font-bold text-lg text-[var(--primary-color)]'>${project.title}</span>
+            <span class='text-sm text-gray-300'>${project.desc}</span>
+            <a href='${project.link}' target='_blank' class='text-cyan-400 underline text-xs'>Visit Project</a>
+            <button class='delete-project bg-red-500 text-white font-bold py-1 px-3 rounded mt-2 self-end'>Delete</button>
+        `;
+        projectList.appendChild(li);
+    }
+    loadProjects();
+
+    // Activity Feed Logic
+    const activityFeed = document.getElementById('activity-feed');
+    function addActivity(msg) {
+        const li = document.createElement('li');
+        li.className = 'bg-gray-800 rounded-lg p-4';
+        li.innerHTML = msg;
+        activityFeed.prepend(li);
+    }
+    // Logout button returns to hero section of portfolio
+    const logoutBtn = document.getElementById('admin-logout');
+    if (logoutBtn) {
+        logoutBtn.onclick = () => { window.location.href = 'index.html#hero'; };
+    }
+    </script>
+    // Logout button returns to hero section of portfolio
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoutBtn = document.getElementById('admin-logout');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                window.location.href = 'index.html#hero';
+            });
+        }
+    });
+</script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Muhammed Rasheequ, Graphic Designer & Front-End Developer">
+    <title>Muhammed Rasheequ | Graphic Designer & Front-End Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8ZgE4G2h/2u7k5d3G1S1z41C/Wk5b4hD2f9F0R2sC2A9b9Wb0yJzPz6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script>
+        // Set CSS variables and enable Inter font globally
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wa-green': '#25D366',
+                        'insta-pink': '#C13584',
+                        'fb-blue': '#1877F2',
+                        'li-blue': '#0A66C2',
+                        'be-blue': '#1769FF',
+                        'tw-blue': '#1DA1F2',
+                        'phone-green': '#25D366',
+                        'mail-red': '#DB4437',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+
+
+html
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom-cursor.hover {
+    width: 12px;
+    height: 12px;
+    background-color: #00FFFF;
+    border-color: #00FFFF;
+    box-shadow: 0 0 15px #00FFFF;
+  }
+
+  body {
+    cursor: none;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    .custom-cursor {
+      display: none;
+    }
+  }
+
+
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            /* Neon Colors */
+            --primary-color: #00FFFF; /* Neon Cyan */
+            --secondary-color: #E0FFFF; /* Near White Neon */
+            --glow-color: #00FFFF;
+            
+            /* Backgrounds */
+            --bg-dark: #0A0A0A;
+            --card-dark: rgba(18, 18, 18, 0.9);
+            --input-border: rgba(0, 255, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+        }
+
+        .neon-text {
+            color: var(--secondary-color);
+            text-shadow: 
+                0 0 5px var(--glow-color),
+                0 0 15px var(--glow-color),
+                0 0 30px var(--glow-color),
+                0 0 60px rgba(0, 255, 255, 0.4);
+            letter-spacing: 4px;
+        }
+
+        .glowing-screen {
+            background: var(--card-dark);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.5),
+                0 0 30px rgba(75, 0, 130, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        
+        .character-glow {
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.7), 
+                0 0 60px rgba(75, 0, 130, 0.5);
+        }
+
+        .glowing-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 8px;
+            z-index: 20;
+            opacity: 0.9;
+        }
+
+        /* Adobe Icons */
+        .icon-ps { background: #008CFF; box-shadow: 0 0 8px #008CFF, 0 0 20px #008CFF; }
+        .icon-ai { background: #FF9A00; box-shadow: 0 0 8px #FF9A00, 0 0 20px #FF9A00; }
+        .icon-id { background: #990099; box-shadow: 0 0 8px #990099, 0 0 20px #990099; }
+        .icon-fg { background: #39FF14; box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14; }
+        .icon-tw { background: #06B6D4; box-shadow: 0 0 8px #06B6D4, 0 0 20px #06B6D4; }
+        .icon-js { background: #F7DF1E; box-shadow: 0 0 8px #F7DF1E, 0 0 20px #F7DF1E; }
+
+        /* Keyframe Animations (Retained) */
+        @keyframes float-screen-1 {
+            0% { transform: rotate(-10deg) translate(-100%, -50%) translateY(0); }
+            50% { transform: rotate(-10deg) translate(-100%, -50%) translateY(-15px); }
+            100% { transform: rotate(-10deg) translate(-100%, -50%) translateY(0); }
+        }
+
+        @keyframes float-screen-char {
+            0% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-15px); }
+            100% { transform: translate(-50%, -50%) translateY(0); }
+        }
+
+        @keyframes float-screen-3 {
+            0% { transform: rotate(10deg) translate(100%, -50%) translateY(0); }
+            50% { transform: rotate(10deg) translate(100%, -50%) translateY(-15px); }
+            100% { transform: rotate(10deg) translate(100%, -50%) translateY(0); }
+        }
+
+        /* Icon float animations (Retained) */
+        @keyframes float-icon-ps { 0% { transform: rotate(-15deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(-15deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(-15deg) translateY(0); opacity: 0.9; } }
+        @keyframes float-icon-fg { 0% { transform: rotate(5deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(5deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(5deg) translateY(0); opacity: 0.9; } }
+        @keyframes float-icon-id { 0% { transform: rotate(10deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(10deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(10deg) translateY(0); opacity: 0.9; } }
+        @keyframes float-icon-ai { 0% { transform: rotate(-5deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(-5deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(-5deg) translateY(0); opacity: 0.9; } }
+        @keyframes float-icon-tw { 0% { transform: rotate(15deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(15deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(15deg) translateY(0); opacity: 0.9; } }
+        @keyframes float-icon-js { 0% { transform: rotate(-10deg) translateY(0); opacity: 0.9; } 50% { transform: rotate(-10deg) translateY(-8px) scale(1.05); opacity: 1; } 100% { transform: rotate(-10deg) translateY(0); opacity: 0.9; } }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar-container {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: none; /* Controlled by JS animation */
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes progressFill {
+            from { width: 0%; }
+            to { width: var(--target-width); }
+        }
+
+        .progress-bar-fill.animate-progress {
+            animation: progressFill 1.5s ease-out forwards;
+        }
+
+        /* Loading state for images */
+        .project-image.loading {
+            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        /* Focus states for accessibility */
+        button:focus, a:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Contact card styles */
+        .contact-card {
+            transition: all 0.12s ease;
+            --primary-color: #00FFFF; /* Default */
+            border: 1px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 224, 255, 0.2);
+        }
+        
+        /* Specific hover colors for contact cards */
+        .contact-card[data-color="wa-green"]:hover { --primary-color: #25D366; }
+        .contact-card[data-color="mail-red"]:hover { --primary-color: #DB4437; }
+        .contact-card[data-color="li-blue"]:hover { --primary-color: #0A66C2; }
+
+        .copy-btn {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .copy-btn {
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .glowing-screen {
+                transform: rotate(0deg) !important;
+                width: 80% !important;
+                margin-bottom: 20px;
+            }
+            .desktop-only {
+                display: none;
+            }
+            @keyframes float-screen-base {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0); }
+            }
+            .mobile-float-screen {
+                animation: float-screen-base 6s ease-in-out infinite alternate-reverse;
+            }
+            
+            /* Improved touch targets */
+            .nav-link, .social-icon, .project-item, .filter-btn, .contact-card {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Prevent zoom on iOS */
+            body { 
+                font-size: 16px; 
+            }
+            
+            .project-grid { 
+                gap: 1rem; 
+            }
+
+            .copy-btn {
+                opacity: 1;
+            }
+
+            /* Mobile Menu specific styles */
+            #mobile-menu {
+                transform: translateX(100%);
+                transition: transform 0.3s ease-out;
+            }
+            #mobile-menu.open {
+                transform: translateX(0);
+            }
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0.5rem;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+            background: #000;
+            color: #fff;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary-color);
+            color: black;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Project card styles */
+        .project-item {
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+            overflow: hidden;
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<div class="custom-cursor"></div>
+<body class="text-gray-100 antialiased font-sans" style="--primary-color: #00FFFF; --secondary-color: #E0FFFF;">
+    <!-- Skip to main content -->
+    <a href="#main" class="sr-only focus:not-sr-only bg-[var(--primary-color)] text-black p-2 z-[1002] rounded-lg">Skip to main content</a>
+
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-[var(--primary-color)] z-[1001] w-0 shadow-[0_0_15px_var(--glow-color)]"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Quick Contact FAB -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#contact" id="quick-contact" class="bg-[var(--primary-color)] text-black p-4 rounded-full shadow-lg hover:scale-110 transition-transform min-h-[60px] min-w-[60px] flex items-center justify-center font-bold" aria-label="Quick Contact Section">
+            <i class="fas fa-paper-plane text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[1000] p-4 lg:p-6 flex justify-between items-center bg-gray-950/90 backdrop-blur-sm transition-all duration-300 border-b border-white/5">
+        <a href="#" class="text-2xl font-black text-gray-50 min-h-[44px] flex items-center" aria-label="Home">Muhammed Rasheequ<span class="text-[var(--primary-color)]">.</span></a>
+    
+        <nav id="navbar" class="hidden md:flex space-x-10" aria-label="Main navigation">
+            <a href="#about" class="text-gray-300 hover:text-[var(--primary-color)] font-medium transition duration-200 tracking-wider nav-link min-h-[44px] flex items-center" aria-label="About Section">About</a>
+            <a href="#services" class="text-gray-300 hover:text-[var(--primary-color)] font-medium transition duration-200 tracking-wider nav-link min-h-[44px] flex items-center" aria-label="Services Section">Services</a>
+            <a href="#skills" class="text-gray-300 hover:text-[var(--primary-color)] font-medium transition duration-200 tracking-wider nav-link min-h-[44px] flex items-center" aria-label="Skills Section">Skills</a>
+            <a href="#projects" class="text-gray-300 hover:text-[var(--primary-color)] font-medium transition duration-200 tracking-wider nav-link min-h-[44px] flex items-center" aria-label="Projects Section">Projects</a>
+        
+            <a href="#contact" class="text-gray-300 hover:text-[var(--primary-color)] font-medium transition duration-200 tracking-wider flex items-center nav-link min-h-[44px]" aria-label="Contact Section">
+                <i class="fa-regular fa-envelope mr-2 text-lg"></i> 
+                Contact
+            </a>
+        </nav>
+    
+        <button id="menu-icon" class="md:hidden text-2xl cursor-pointer text-gray-50 hover:text-[var(--primary-color)] z-[1001] min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle Menu" aria-expanded="false">
+            &#9776;
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <nav id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-gray-950/95 backdrop-blur-xl z-[999] p-8 md:hidden flex flex-col items-start space-y-8 shadow-2xl" aria-label="Mobile navigation">
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl text-gray-50 hover:text-[var(--primary-color)] min-h-[44px] min-w-[44px]" aria-label="Close Menu">&times;</button>
+        <div class="pt-12 flex flex-col space-y-6 w-full">
+            <a href="#about" class="text-2xl font-bold text-gray-50 hover:text-[var(--primary-color)] nav-link" aria-label="About Section">About</a>
+            <a href="#services" class="text-2xl font-bold text-gray-50 hover:text-[var(--primary-color)] nav-link" aria-label="Services Section">Services</a>
+            <a href="#skills" class="text-2xl font-bold text-gray-50 hover:text-[var(--primary-color)] nav-link" aria-label="Skills Section">Skills</a>
+            <a href="#projects" class="text-2xl font-bold text-gray-50 hover:text-[var(--primary-color)] nav-link" aria-label="Projects Section">Projects</a>
+            <a href="#contact" class="text-2xl font-bold text-gray-50 hover:text-[var(--primary-color)] nav-link" aria-label="Contact Section">Contact</a>
+        </div>
+        <div class="flex space-x-6 pt-8">
+             <!-- Mobile Social Links -->
+            <a href="#" class="text-3xl text-gray-400 hover:text-li-blue transition social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-3xl text-gray-400 hover:text-insta-pink transition social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-3xl text-gray-400 hover:text-be-blue transition social-icon" aria-label="Behance"><i class="fab fa-behance-square"></i></a>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section id="hero" class="relative h-[120vh] pt-28 lg:pt-40 flex flex-col justify-center items-center overflow-hidden animate-fadeIn" style="background: var(--bg-dark);">
+            <!-- Background dark gradient/haze effect -->
+            <div class="absolute inset-0 z-0 bg-gradient-to-t from-black via-gray-900 to-black opacity-80"></div>
+            
+            <!-- Main Content Area -->
+            <div class="relative w-full max-w-7xl h-[80vh] md:h-[90vh] flex flex-col items-center justify-start pt-10 z-10">
+
+                <!-- Main Title Text -->
+                <div class="text-center mb-16">
+                    <h1 class="text-6xl md:text-8xl font-black uppercase neon-text tracking-widest">Muhammed Rasheequ</h1>
+                    <h2 class="text-xl md:text-3xl font-light uppercase neon-text tracking-[.4em] mt-2">Graphic Designer & Front-End Developer</h2>
+                    
+
+
+
+
+
+                    
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-60">
+                        <a href="#contact" class="bg-[var(--primary-color)] text-black font-bold py-3 px-8 rounded-xl hover:scale-105 transition-transform min-h-[50px] flex items-center justify-center">
+                            Hire Me
+                        </a>
+                        <button id="download-resume" class="border-2 border-[var(--primary-color)] text-[var(--primary-color)] font-bold py-3 px-8 rounded-xl hover:bg-[var(--primary-color)] hover:text-black transition-all min-h-[50px] flex items-center justify-center">
+    <a href="https://drive.google.com/file/d/1OLgdZXxp7imKI80ZDHw-pNNpYOiAtDLD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+        Download Resume
+    </a>
+</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <!-- Floating UI Screens -->
+                <div class="glowing-screen w-48 h-80 absolute top-1/2 left-1/4 -translate-x-full -translate-y-1/2 rounded-3xl p-4 flex flex-col desktop-only" 
+                    style="animation: float-screen-1 6s ease-in-out infinite; z-index: 5;">
+                    <div class="text-xs text-white/50 mb-4">Admin Login</div>
+                    <h3 class="text-xl text-white font-semibold mb-6">Login to Admin Panel</h3>
+                    <form id="admin-login-form" class="flex flex-col gap-3">
+                        <input type="text" id="admin-username" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Username" required>
+                        <input type="password" id="admin-password" class="w-full bg-white/10 text-white p-2 rounded-lg text-sm border border-cyan-400/50" placeholder="Password" required>
+                        <button type="submit" class="bg-cyan-500 text-black font-bold py-2 rounded-xl shadow-lg shadow-cyan-500/50 min-h-[44px]">Login</button>
+                        <p id="admin-login-error" class="text-red-400 text-xs mt-2 hidden">Invalid credentials. Please try again.</p>
+                    </form>
+                </div>
+
+                <!-- Central Character Focus -->
+               
+
+                <!-- Screen 3: Code Editor UI -->
+                <div class="glowing-screen w-48 h-80 absolute top-1/2 right-1/4 translate-x-full -translate-y-1/2 rounded-3xl p-4 flex flex-col desktop-only" 
+                    style="animation: float-screen-3 7s ease-in-out infinite alternate-reverse; z-index: 5;">
+                    <div class="text-xs text-white/50 mb-4">Code Editor</div>
+                    <div class="grid grid-cols-7 gap-.5 text-center text-xs text-white/70 mb-4">
+                        <div>HTML</div><div>CSS</div><div>JS</div><div>Build</div><div>Test</div><div>Deploy</div><div>Live</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="h-3 bg-green-500/50 rounded-full w-full"></div>
+                        <div class="h-3 bg-cyan-500/50 rounded-full w-1/2 ml-auto"></div>
+                        <div class="h-3 bg-purple-500/50 rounded-full w-3/4"></div>
+                        <div class="text-white/70 text-xs pt-4">New commit: Updated responsive layout</div>
+                    </div>
+                </div>
+
+                <!-- Floating App Icons -->
+                <div class="glowing-icon icon-ps absolute top-[10%] left-[20%] desktop-only" 
+                    style="animation: float-icon-ps 3s ease-in-out infinite; z-index: 20;">Ps</div>
+                <div class="glowing-icon icon-ai absolute top-[30%] right-[10%] desktop-only" 
+                    style="animation: float-icon-ai 3.5s ease-in-out infinite alternate; z-index: 20;">Ai</div>
+                <div class="glowing-icon icon-id absolute bottom-[20%] left-[10%] desktop-only" 
+                    style="animation: float-icon-id 4s ease-in-out infinite; z-index: 20;">Id</div>
+                <div class="glowing-icon icon-fg absolute bottom-[10%] right-[30%] desktop-only" 
+                    style="animation: float-icon-fg 4.5s ease-in-out infinite alternate-reverse; z-index: 20;">Fg</div>
+                <div class="glowing-icon icon-tw absolute top-[20%] left-[30%] desktop-only" 
+                    style="animation: float-icon-tw 5s ease-in-out infinite; z-index: 20;">Tw</div>
+                <div class="glowing-icon icon-js absolute bottom-[30%] right-[20%] desktop-only" 
+                    style="animation: float-icon-js 5.5s ease-in-out infinite alternate; z-index: 20;">Js</div>
+
+                <!-- Mobile View -->
+                <div class="sm:hidden flex flex-col items-center justify-center space-y-4 w-full">
+                    <div class="glowing-screen w-11/12 h-60 rounded-xl p-4 mobile-float-screen">
+                        <h3 class="text-lg text-white font-semibold mb-4">Design Workspace</h3>
+                        <input class="w-full bg-white/10 text-white p-2 rounded-lg text-sm mb-3" placeholder="Project Name">
+                        <button class="bg-cyan-500 text-black font-bold py-2 rounded-xl w-full min-h-[44px]">Create</button>
+                    </div>
+                    <div class="glowing-screen w-11/12 h-60 rounded-xl p-4 mobile-float-screen" style="animation-delay: 1s;">
+                        <h3 class="text-lg text-white font-semibold mb-4">Code Editor</h3>
+                        <div class="space-y-2">
+                            <div class="h-4 bg-green-500/50 rounded-full w-4/5"></div>
+                            <div class="h-4 bg-purple-500/50 rounded-full w-2/3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <section class="py-12 bg-gray-900/50">
+            <div class="max-w-6xl mx-auto text-center">
+                <p class="text-gray-400 mb-8">Trusted by creative teams worldwide</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                    <div class="text-2xl font-bold text-gray-300">Creative Studio</div>
+                    <div class="text-2xl font-bold text-gray-300">Tech Startup</div>
+                    <div class="text-2xl font-bold text-gray-300">Design Agency</div>
+                    <div class="text-2xl font-bold text-gray-300">E-Commerce</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="min-h-screen flex flex-col justify-center items-center py-20 px-4 md:px-8 bg-gray-950/70 animate-slideUp">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-[var(--primary-color)] mb-16 text-center">About My Dual Expertise</h2>
+            
+            <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+                <div class="lg:col-span-2 space-y-6 text-gray-400 text-lg border-l-4 border-[var(--primary-color)] pl-6 lg:pl-8">
+                    <p>I blend visual design and modern web development to create interfaces that are both stunning and seamless. 
+                    I bring a designer’s eye and a developer’s precision—delivering visuals that perform as beautifully as they look.</p>
+With a background in Adobe Creative Suite and Figma UI/UX design, I turn concepts into pixel-perfect, responsive, and accessible websites using HTML5, CSS (Tailwind/Sass), and JavaScript (ES6+).
+I bring a designer’s eye and a developer’s precision—delivering visuals that perform as beautifully as they look.</p>
+                </div>
+                <div class="lg:col-span-1">
+                    <div class="bg-[var(--card-dark)] p-8 rounded-xl border-t-4 border-[var(--primary-color)] shadow-2xl h-full flex flex-col justify-start transform hover:scale-105 transition duration-300">
+                        <p class="text-sm font-bold uppercase text-[var(--secondary-color)] mb-2 tracking-widest">My Creative Studio</p>
+                        <h3 class="text-3xl font-extrabold text-gray-50 mb-4">Graphi.qo</h3>
+                        <p class="text-gray-400 text-base mb-4">
+                            Graphi.qo is the hub for my high-end design services—where the visual foundation for my web work begins. It focuses on logo design, brand kits, and marketing assets, ensuring every project starts with a strong, creative identity.
+                        </p>
+                        <a href="https://www.instagram.com/graphi.qo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="inline-block mt-auto text-[var(--secondary-color)] font-semibold hover:text-[var(--primary-color)] hover:translate-x-1 transition duration-300" aria-label="Explore Graphi.qo">See the GRAPHI.QO &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-800 my-0">
+
+        <!-- Services Section -->
+        <section id="services" class="min-h-screen flex flex-col justify-center items-center py-24 px-4 md:px-8 bg-[var(--bg-dark)] animate-fadeIn">
+            <h2 class="text-5xl lg:text-6xl font-extrabold text-[var(--text-light)] mb-2 text-center relative after:block after:w-20 after:h-1 after:bg-[var(--primary-color)] after:mx-auto after:mt-4 after:rounded-full after:shadow-[0_0_15px_var(--glow-color)]">
+                Services
+            </h2>
+            <p class="text-xl text-gray-400 mt-4 mb-16 text-center max-w-2xl">Comprehensive design and development solutions tailored to your needs.</p>
+
+            <div class="services-grid w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[var(--primary-color)] transition-all duration-300 transform hover:scale-[1.03] cursor-design-hover animate-slideUp">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-palette text-4xl mr-3 text-[var(--primary-color)]"></i>
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)]">UI/UX Design</h3>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">User-centered interface design with intuitive experiences that drive engagement and conversions.</p>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li>• Wireframing & Prototyping</li>
+                        <li>• User Research & Testing</li>
+                        <li>• Interactive Design Systems</li>
+                    </ul>
+                </div>
+
+                <div class="service-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[var(--primary-color)] transition-all duration-300 transform hover:scale-[1.03] cursor-design-hover animate-slideUp">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-code text-4xl mr-3 text-[var(--primary-color)]"></i>
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)]">Front-End Development</h3>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Responsive, performant websites built with modern technologies and best practices.</p>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li>• HTML5, CSS3, JavaScript</li>
+                        <li>• Tailwind CSS & React</li>
+                        <li>• Performance Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="service-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[var(--primary-color)] transition-all duration-300 transform hover:scale-[1.03] cursor-design-hover animate-slideUp">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-pen-nib text-4xl mr-3 text-[var(--primary-color)]"></i>
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)]">Brand Identity</h3>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Complete branding solutions that establish strong visual identity and market presence.</p>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li>• Logo & Visual Identity</li>
+                        <li>• Brand Guidelines</li>
+                        <li>• Marketing Materials</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-800 my-0">
+        
+        <!-- Skills Section -->
+        <section id="skills" class="min-h-screen flex flex-col justify-center items-center py-24 px-4 md:px-8 bg-[var(--bg-dark)] animate-fadeIn">
+            <h2 class="text-5xl lg:text-6xl font-extrabold text-[var(--secondary-color)] mb-2 text-center relative after:block after:w-20 after:h-1 after:bg-[var(--primary-color)] after:mx-auto after:mt-4 after:rounded-full after:shadow-[0_0_15px_var(--glow-color)]">
+                Core Competencies
+            </h2>
+            <p class="text-xl text-gray-400 mt-4 mb-16 text-center max-w-2xl">A snapshot of the key technical and design capabilities I bring to every project.</p>
+
+            <div class="skills-grid w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1: Photoshop & Illustrator -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#31A8FF] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(49,168,255,0.4)] cursor-design-hover animate-slideUp delay-100">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-layer-group text-4xl mr-3" style="color: #31A8FF;"></i>
+                        <h3 class="text-2xl font-bold text-[#31A8FF] tracking-wide">Photoshop & Illustrator</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background: linear-gradient(90deg, #31A8FF, #FF9A00);" data-width="90%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">90%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Vector creation, advanced photo manipulation, and preparing optimized assets for web and print media.</p>
+                </div>
+
+                <!-- Skill 2: UI/UX & Figma -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#A259FF] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(162,89,255,0.4)] cursor-design-hover animate-slideUp delay-200">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-brands fa-figma text-4xl mr-3" style="color: #A259FF;"></i>
+                        <h3 class="text-2xl font-bold text-[#A259FF] tracking-wide">UI/UX & Figma</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background-color: #A259FF;" data-width="92%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">92%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Wireframing, high-fidelity prototyping, and user-centric design flows for optimal experience.</p>
+                </div>
+
+                <!-- Skill 3: Adobe InDesign -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#FF3366] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,51,102,0.4)] cursor-design-hover animate-slideUp delay-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-newspaper text-4xl mr-3" style="color: #FF3366;"></i>
+                        <h3 class="text-2xl font-bold text-[#FF3366] tracking-wide">Adobe InDesign</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background-color: #FF3366;" data-width="80%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">80%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Professional layout design for magazines, brochures, and digital documents, ready for print or web.</p>
+                </div>
+
+                <!-- Skill 4: Front-End Foundations (Completing the incomplete section) -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#E34F26] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(227,79,38,0.4)] cursor-dev-hover animate-slideUp delay-400">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-brands fa-html5 text-4xl mr-3" style="color: #E34F26;"></i>
+                        <h3 class="text-2xl font-bold text-[#E34F26] tracking-wide">HTML5 & CSS3</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background: linear-gradient(90deg, #E34F26, #1572B6);" data-width="95%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">95%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Semantic markup, modern CSS techniques (Flexbox/Grid), and highly optimized structure.</p>
+                </div>
+                
+                <!-- Skill 5: JavaScript & React -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#61DAFB] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(97,218,251,0.4)] cursor-dev-hover animate-slideUp delay-500">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-brands fa-react text-4xl mr-3" style="color: #61DAFB;"></i>
+                        <h3 class="text-2xl font-bold text-[#61DAFB] tracking-wide">React & JavaScript (ES6+)</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background: linear-gradient(90deg, #61DAFB, #F7DF1E);" data-width="85%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">85%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Building dynamic, component-based applications using modern hooks and state management.</p>
+                </div>
+
+                <!-- Skill 6: Tailwind CSS & Responsiveness -->
+                <div class="skill-item p-8 rounded-2xl bg-[var(--card-dark)] border border-transparent hover:border-[#06B6D4] transition-all duration-75 transform hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] cursor-dev-hover animate-slideUp delay-600">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 mr-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #06B6D4;">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.44 14.94L16.03 16.35C15.64 16.74 15.01 16.74 14.62 16.35L7.65 9.38C7.26 8.99 7.26 8.36 7.65 7.97L9.06 6.56C9.45 6.17 10.08 6.17 10.47 6.56L17.44 13.53C17.83 13.92 17.83 14.55 17.44 14.94Z" fill="currentColor"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-[#06B6D4] tracking-wide">Tailwind & Responsiveness</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill w-0" style="background-color: #06B6D4;" data-width="98%"></div>
+                        </div>
+                        <span class="skill-percent text-xl font-semibold text-[var(--secondary-color)]">98%</span>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">Rapid prototyping, utility-first development, and creating truly adaptable, mobile-first designs.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="border-t border-gray-800 my-0">
+
+        <!-- Projects Section -->
+        <section id="projects" class="min-h-screen flex flex-col justify-center items-center py-24 px-4 md:px-8 bg-gray-950/70 animate-fadeIn">
+            <h2 class="text-5xl lg:text-6xl font-extrabold text-[var(--secondary-color)] mb-2 text-center relative after:block after:w-20 after:h-1 after:bg-[var(--primary-color)] after:mx-auto after:mt-4 after:rounded-full after:shadow-[0_0_15px_var(--glow-color)]">
+                Featured Projects
+            </h2>
+            <p class="text-xl text-gray-400 mt-4 mb-12 text-center max-w-2xl">A curated selection of my best work at the intersection of design and code.</p>
+
+            <!-- Project Filters -->
+            <div id="project-filters" class="flex flex-wrap justify-center gap-3 mb-12">
+                <button data-filter="all" class="filter-btn bg-[var(--card-dark)] text-[var(--primary-color)] border border-[var(--primary-color)] px-5 py-2 rounded-full font-semibold hover:bg-[var(--primary-color)] hover:text-black transition-all min-h-[44px]">All Projects</button>
+                <button data-filter="development" class="filter-btn bg-[var(--card-dark)] text-gray-400 border border-gray-700 px-5 py-2 rounded-full font-semibold hover:border-blue-500 hover:text-blue-400 transition-all min-h-[44px]">Development</button>
+                <button data-filter="design" class="filter-btn bg-[var(--card-dark)] text-gray-400 border border-gray-700 px-5 py-2 rounded-full font-semibold hover:border-purple-500 hover:text-purple-400 transition-all min-h-[44px]">Design</button>
+                <button data-filter="branding" class="filter-btn bg-[var(--card-dark)] text-gray-400 border border-gray-700 px-5 py-2 rounded-full font-semibold hover:border-yellow-500 hover:text-yellow-400 transition-all min-h-[44px]">Branding</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div id="project-list" class="project-grid w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: E-Commerce UI Prototype (Design) -->
+                <a href="#" class="project-item group block rounded-xl bg-[var(--card-dark)] overflow-hidden shadow-xl" data-category="design">
+                    <div class="project-image h-48 bg-gray-800 loading" style="background-image: url('https://placehold.co/600x400/151515/00FFFF?text=E-Commerce+UI'); background-size: cover;"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)] group-hover:text-[var(--primary-color)]">E-Commerce UI Prototype</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-4">A high-fidelity Figma prototype focused on conversion-optimized checkout flows.</p>
+                        <span class="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">Design</span>
+                    </div>
+                </a>
+
+                <!-- Project 2: Tailwind Dashboard (Development) -->
+                <a href="#" class="project-item group block rounded-xl bg-[var(--card-dark)] overflow-hidden shadow-xl" data-category="development">
+                    <div class="project-image h-48 bg-gray-800 loading" style="background-image: url('https://placehold.co/600x400/151515/00FFFF?text=Tailwind+Dashboard'); background-size: cover;"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)] group-hover:text-[var(--primary-color)]">Interactive Dashboard</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-4">A fully responsive admin dashboard built with React and styled entirely with Tailwind CSS.</p>
+                        <span class="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full">Development</span>
+                    </div>
+                </a>
+
+                <!-- Project 3: Logo & Brand Guideline (Branding) -->
+                <a href="#" class="project-item group block rounded-xl bg-[var(--card-dark)] overflow-hidden shadow-xl" data-category="branding">
+                    <div class="project-image h-48 bg-gray-800 loading" style="background-image: url('https://placehold.co/600x400/151515/00FFFF?text=Brand+Identity'); background-size: cover;"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)] group-hover:text-[var(--primary-color)]">Corporate Brand Redesign</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-4">Complete package including a new logo, color palette, and typography rules for a tech firm.</p>
+                        <span class="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Branding</span>
+                    </div>
+                </a>
+
+                <!-- Project 4: Portfolio V3 (Development, Design) -->
+                <a href="#" class="project-item group block rounded-xl bg-[var(--card-dark)] overflow-hidden shadow-xl" data-category="development design">
+                    <div class="project-image h-48 bg-gray-800 loading" style="background-image: url('https://placehold.co/600x400/151515/00FFFF?text=Portfolio+V3'); background-size: cover;"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[var(--secondary-color)] group-hover:text-[var(--primary-color)]">Personal Portfolio V3</h3>
+                        <p class="text-sm text-gray-400 mt-2 mb-4">The current site build, demonstrating modern development and responsive, aesthetic design.</p>
+                        <span class="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full">Dev/Design</span>
+                    </div>
+                </a>
+
+            </div>
+            <a href="https://www.behance.net/rasheequ" class="mt-12 inline-block bg-gray-800 text-[var(--primary-color)] border border-[var(--primary-color)] font-bold py-3 px-8 rounded-xl hover:bg-[var(--primary-color)] hover:text-black transition-all min-h-[50px]">
+                View All on Behance
+            </a>
+        </section>
+
+        <hr class="border-t border-gray-800 my-0">
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen flex flex-col justify-center items-center py-24 px-4 md:px-8 bg-[var(--bg-dark)] animate-fadeIn">
+            <h2 class="text-5xl lg:text-6xl font-extrabold text-[var(--secondary-color)] mb-2 text-center relative after:block after:w-20 after:h-1 after:bg-[var(--primary-color)] after:mx-auto after:mt-4 after:rounded-full after:shadow-[0_0_15px_var(--glow-color)]">
+                Let's Connect
+            </h2>
+            <p class="text-xl text-gray-400 mt-4 mb-16 text-center max-w-2xl">Ready to turn your vision into a digital reality? Send me a message or connect instantly.</p>
+
+            <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-10">
+                
+                <!-- Contact Cards (Left Column) -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- Card 1: WhatsApp -->
+                    <div class="contact-card p-6 rounded-xl bg-[var(--card-dark)] flex items-center justify-between shadow-lg" data-color="wa-green" data-copy="Phone: +91 98765 43210">
+                        <div class="flex items-center">
+                            <i class="fab fa-whatsapp text-4xl text-wa-green mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-50">WhatsApp / Phone</h4>
+                                <p class="text-gray-400 text-sm" id="phone-content">+91 9526569313</p>
+                            </div>
+                        </div>
+                       <a href="https://wa.me/919526569313?text=Can%20I%20connect%20with%20you%20now!" target="_blank">
+  <button class="bg-wa-green text-black px-3 py-2 rounded-lg font-bold hover:scale-105 transition-transform" aria-label="Connect on WhatsApp">
+    Connect
+  </button>
+</a>
+
+                    </div>
+
+                    <!-- Card 2: Email -->
+                    <div class="contact-card p-6 rounded-xl bg-[var(--card-dark)] flex items-center justify-between shadow-lg" data-color="mail-red" data-copy="Email: hello@rasheequ.dev">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-4xl text-mail-red mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-50">Email Address</h4>
+                                <p class="text-gray-400 text-sm" id="mail-content">rasheequ.designs@gmial.com</p>
+                            </div>
+                        </div>
+                        <button class="copy-btn bg-mail-red text-black px-3 py-2 rounded-lg font-bold hover:scale-105 transition-transform" data-copy-target="mail-content" aria-label="Copy Email Address">
+                            Copy
+                        </button>
+                    </div>
+
+                    <!-- Card 3: LinkedIn -->
+                    <div class="contact-card p-6 rounded-xl bg-[var(--card-dark)] flex items-center justify-between shadow-lg" data-color="li-blue">
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin text-4xl text-li-blue mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-50">LinkedIn Profile</h4>
+                                <p class="text-gray-400 text-sm">Rasheequ MLP</p>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/rasheequ-mlp-a1895031a/" class="bg-li-blue text-black px-3 py-2 rounded-lg font-bold hover:scale-105 transition-transform min-w-[50px] text-center" aria-label="Go to LinkedIn">
+                            Go
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Right Column) -->
+                <div class="lg:col-span-2 p-8 rounded-xl glowing-screen shadow-2xl">
+                    <h3 class="text-3xl font-extrabold text-[var(--primary-color)] mb-6">Send Me a Quick Message</h3>
+                    <form id="contact-form" action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-200 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full bg-gray-900 text-white p-3 rounded-lg border border-[var(--input-border)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent min-h-[44px]" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full bg-gray-900 text-white p-3 rounded-lg border border-[var(--input-border)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent min-h-[44px]" placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-200 mb-2">Message / Project Details</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full bg-gray-900 text-white p-3 rounded-lg border border-[var(--input-border)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[var(--primary-color)] text-black font-bold py-3 rounded-xl shadow-lg hover:scale-[1.01] transition-transform min-h-[50px]">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                        <p id="form-message" class="text-center text-sm mt-3" style="display: none;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950/90 border-t border-white/5 py-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+            <p class="text-xl font-bold text-gray-50 mb-4">Muhammed Rasheequ<span class="text-[var(--primary-color)]">.</span></p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.linkedin.com/in/rasheequ-mlp-a1895031a/" class="text-gray-400 hover:text-li-blue transition social-icon text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/mr.rasheequ/" class="text-gray-400 hover:text-insta-pink transition social-icon text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.behance.net/rasheequ" class="text-gray-400 hover:text-be-blue transition social-icon text-2xl" aria-label="Behance"><i class="fab fa-behance-square"></i></a>
+                <a href="https://x.com/rasheequmlp" class="text-gray-400 hover:text-tw-blue transition social-icon text-2xl" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 Muhammed Rasheequ. All rights reserved. | Crafted with <span class="text-red-500">&hearts;</span> and countless cups of tea.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Supabase setup
+            const SUPABASE_URL = 'https://hwqswzusjkbfjbtxzfpb.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3cXN3enVzamtiZmpidHh6ZnBiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4NDA1NzUsImV4cCI6MjA3NTQxNjU3NX0.LDMcsAV412izr89PObPLRzJ8itDbi6JGyeN2Ure6jhc';
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+            // Fetch and display profile info
+            async function loadProfile() {
+                const { data } = await supabase.from('profile').select().eq('id', 1).single();
+                if (data) {
+                    // Example: update hero section name and about
+                    const nameEl = document.querySelector('.neon-text');
+                    if (nameEl) nameEl.textContent = data.name;
+                    const aboutEl = document.querySelector('#hero .text-xl.md\:text-3xl');
+                    if (aboutEl) aboutEl.textContent = data.about;
+                }
+            }
+            loadProfile();
+
+            // Fetch and display projects
+            async function loadProjects() {
+                const { data } = await supabase.from('projects').select();
+                const projectList = document.getElementById('project-list');
+                if (projectList && data) {
+                    projectList.innerHTML = '';
+                    data.forEach(project => {
+                        const a = document.createElement('a');
+                        a.className = 'project-item group block rounded-xl bg-[var(--card-dark)] overflow-hidden shadow-xl';
+                        a.href = project.link;
+                        a.target = '_blank';
+                        a.innerHTML = `
+                            <div class="project-image h-48 bg-gray-800" style="background-image: url('https://placehold.co/600x400/151515/00FFFF?text=${encodeURIComponent(project.title)}'); background-size: cover;"></div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-[var(--secondary-color)] group-hover:text-[var(--primary-color)]">${project.title}</h3>
+                                <p class="text-sm text-gray-400 mt-2 mb-4">${project.desc}</p>
+                                <span class="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full">Project</span>
+                            </div>
+                        `;
+                        projectList.appendChild(a);
+                    });
+                }
+            }
+            loadProjects();
+            // Admin login logic
+            const adminForm = document.getElementById('admin-login-form');
+            if (adminForm) {
+                adminForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const username = document.getElementById('admin-username').value;
+                    const password = document.getElementById('admin-password').value;
+                    const errorMsg = document.getElementById('admin-login-error');
+                    // Simple hardcoded credentials for demo
+                    if (username === 'admin' && password === 'admin123') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        errorMsg.classList.remove('hidden');
+                    }
+                });
+            }
+            const header = document.getElementById('main-header');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenu = document.getElementById('close-menu');
+            const navLinks = document.querySelectorAll('#navbar a, #mobile-menu a');
+            const progressBar = document.getElementById('progress-bar');
+            const contactCards = document.querySelectorAll('.contact-card button.copy-btn');
+            const downloadResume = document.getElementById('download-resume');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            // --- 1. Menu Toggle Logic ---
+            const toggleMenu = () => {
+                const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+                menuIcon.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('open');
+                document.body.classList.toggle('overflow-hidden');
+                menuIcon.innerHTML = mobileMenu.classList.contains('open') ? '&times;' : '&#9776;';
+            };
+
+            menuIcon.addEventListener('click', toggleMenu);
+            closeMenu.addEventListener('click', toggleMenu);
+
+            // Close menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            // --- 2. Scroll Progress Bar & Header Shadow ---
+            const updateProgressBar = () => {
+                const scrollY = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollY / docHeight) * 100;
+                progressBar.style.width = `${scrollPercent}%`;
+
+                // Header appearance on scroll
+                if (scrollY > 50) {
+                    header.classList.add('border-white/10');
+                } else {
+                    header.classList.remove('border-white/10');
+                }
+            };
+
+            window.addEventListener('scroll', updateProgressBar);
+
+            // --- 3. Progress Bar Animation on Scroll Into View ---
+            const animateSkills = () => {
+                const skillItems = document.querySelectorAll('.skill-item');
+                skillItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight - 100 && rect.bottom >= 100);
+
+                    if (isVisible) {
+                        const fills = item.querySelectorAll('.progress-bar-fill');
+                        fills.forEach(fill => {
+                            if (!fill.classList.contains('animate-progress')) {
+                                const targetWidth = fill.getAttribute('data-width');
+                                fill.style.setProperty('--target-width', targetWidth);
+                                fill.classList.add('animate-progress');
+                            }
+                        });
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateSkills);
+            animateSkills(); // Run once on load
+
+            // --- 4. Toast Notification System ---
+            const showToast = (message, isError = false) => {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toast-message');
+                
+                toast.classList.remove('hidden', 'bg-red-500', 'bg-[var(--primary-color)]');
+                toast.classList.add(isError ? 'bg-red-500' : 'bg-[var(--primary-color)]');
+                toast.style.color = 'black'; // Ensure text is black for visibility
+
+                toastMessage.textContent = message;
+                
+                // Show toast
+                setTimeout(() => toast.classList.add('show'), 10);
+
+                // Hide toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.classList.add('hidden'), 300); // Hide element fully after transition
+                }, 3000);
+            };
+
+            // --- 5. Copy to Clipboard Functionality ---
+            contactCards.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = button.getAttribute('data-copy-target');
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        // Use text content for copying
+                        const textToCopy = targetElement.textContent.trim();
+
+                        // Fallback method for copying text (since clipboard API may fail in iframes)
+                        const tempInput = document.createElement('textarea');
+                        tempInput.value = textToCopy;
+                        document.body.appendChild(tempInput);
+                        tempInput.select();
+                        try {
+                            document.execCommand('copy');
+                            showToast(`Copied: ${textToCopy.split(':')[0].trim()}!`);
+                        } catch (err) {
+                            showToast('Could not copy automatically. Please copy manually.', true);
+                            console.error('Copy failed:', err);
+                        }
+                        document.body.removeChild(tempInput);
+                    }
+                });
+            });
+
+            // Mock Resume Download
+            downloadResume.addEventListener('click', () => {
+                showToast('Downloading Mock Resume (PDF)...');
+                // In a real application, this would trigger a file download
+            });
+
+
+            // --- 6. Project Filtering Logic ---
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Update active button state
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('text-[var(--primary-color)]', 'border-[var(--primary-color)]', 'hover:bg-[var(--primary-color)]', 'hover:text-black');
+                        btn.classList.add('text-gray-400', 'border-gray-700');
+                    });
+                    
+                    // Apply active style dynamically based on filter type for a cool effect
+                    let hoverClass = 'hover:border-cyan-500 hover:text-cyan-400';
+                    let activeClass = 'text-[var(--primary-color)] border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-black';
+
+                    if (filter === 'development') {
+                        hoverClass = 'hover:border-blue-500 hover:text-blue-400';
+                    } else if (filter === 'design') {
+                        hoverClass = 'hover:border-purple-500 hover:text-purple-400';
+                    } else if (filter === 'branding') {
+                        hoverClass = 'hover:border-yellow-500 hover:text-yellow-400';
+                    }
+                    
+                    button.classList.add(...activeClass.split(' '));
+                    button.classList.remove('text-gray-400', 'border-gray-700');
+
+                    // Filter items
+                    projectItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+
+                        if (filter === 'all' || categories.includes(filter)) {
+                            item.style.display = 'block';
+                            setTimeout(() => item.style.opacity = '1', 10);
+                        } else {
+                            item.style.opacity = '0';
+                            setTimeout(() => item.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+
+            // --- 7. Simple Contact Form Submission (Prevent Default) ---
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                if (!name || !email || !message) {
+                    formMessage.textContent = 'Please fill out all fields.';
+                    formMessage.style.color = 'red';
+                    formMessage.style.display = 'block';
+                    setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+                    return;
+                }
+                formMessage.textContent = 'Sending...';
+                formMessage.style.color = 'var(--primary-color)';
+                formMessage.style.display = 'block';
+                // Send to Supabase
+                supabase.from('messages').insert({ name, email, message }).then(({ error }) => {
+                    if (error) {
+                        formMessage.textContent = 'Error sending message: ' + (error.message || 'Please try again.');
+                        formMessage.style.color = 'red';
+                    } else {
+                        formMessage.textContent = 'Message Sent! I will get back to you soon.';
+                        formMessage.style.color = 'var(--primary-color)';
+                        contactForm.reset();
+                        showToast('Thank you for your message!', false);
+                    }
+                    setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+                });
+            });
+        });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.custom-cursor');
+    
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Add hover effect to interactive elements
+    const hoverElements = document.querySelectorAll('a, button, input, textarea, .project-item, .service-item, .skill-item, .contact-card, .nav-link, .social-icon, .filter-btn');
+    
+    hoverElements.forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>
